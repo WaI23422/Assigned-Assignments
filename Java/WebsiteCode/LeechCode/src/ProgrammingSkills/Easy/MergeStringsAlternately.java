@@ -47,13 +47,13 @@ public class MergeStringsAlternately {
     public static void main(String[] args) {
         String word1 = "ab";
         String word2 = "pqrs";
-        Solution solution = new Solution();
+        MergeStringsAlternately_Solution solution = new MergeStringsAlternately_Solution();
 
         System.out.println(solution.mergeAlternately(word1, word2));
     }
 }
 
-class Solution {
+class MergeStringsAlternately_Solution {
     // 7 ms
     // 42 MB
     public String mergeAlternately(String word1, String word2) {

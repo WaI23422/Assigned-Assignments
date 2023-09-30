@@ -43,7 +43,7 @@ merged: a p b q c   d
 	<li><code>word1</code> and <code>word2</code> consist of lowercase English letters.</li>
 </ul></div>
  */
-class Solution {
+class MergeStringsAlternately_Solution {
     // 0 ms
     // 40.6 MB
     public String mergeAlternately(String word1, String word2) {
@@ -80,7 +80,7 @@ class Solution {
     }
 }
 
-class Solution2 {
+class MergeStringsAlternately_Solution2 {
     // 1 ms
     // 40.8 MB
     public String mergeAlternately(String word1, String word2) {

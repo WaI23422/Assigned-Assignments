@@ -42,13 +42,13 @@ package Easy;
 public class TwoSum {
     public static void main(String[] args) {
         int[] numb = {2,7,11,15};
-        Solution solution = new Solution();
+        TwoSum_Solution solution = new TwoSum_Solution();
         
         System.out.println(solution.twoSum(numb, 9));;
     }
 }
 
-class Solution{
+class TwoSum_Solution{
     // 46 ms
     // 43.5 MB
     public int[] twoSum(int[] nums, int target) {
