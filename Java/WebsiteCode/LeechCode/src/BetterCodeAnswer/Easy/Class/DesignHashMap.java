@@ -1,6 +1,4 @@
 package BetterCodeAnswer.Easy.Class;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * <a class="mr-2 text-label-1 dark:text-dark-label-1 hover:text-label-1 dark:hover:text-dark-label-1 text-lg font-medium" href="/problems/design-hashmap/">706.Design HashMap</a>
@@ -71,50 +69,54 @@ public class DesignHashMap {
     } 
 }
 
-class MyHashMap {
+class MyHashMap{
+        // 13 ms
+        // 46.7 MB
+        final ListNode[] nodes = new ListNode[10_000];
 
-    private static final int SIZE = 1000;
-    private List<int[]>[] map;
-
-    public MyHashMap() {
-        map = new ArrayList[SIZE];
-        for (int i = 0; i < SIZE; i++) {
-            map[i] = new ArrayList<>();
+        public void put(int key, int value){
+            int i = idx(key);
+            if(nodes[i] == null)
+                nodes[i] = new ListNode(-1, -1);
+            ListNode prev = find(nodes[i], key);
+            if(prev.next == null)
+                prev.next = new ListNode(key, value);
+            else prev.next.val = value;
         }
-    }
 
-    public void put(int key, int value) {
-        int index = key % SIZE;
-        List<int[]> bucket = map[index];
-        for (int[] pair : bucket) {
-            if (pair[0] == key) {
-                pair[1] = value; 
-                return;
+        public int get(int key){
+            int i = idx(key);
+            if(nodes[i] == null)
+                return -1;
+            ListNode node = find(nodes[i], key);
+            return node.next == null ? -1 : node.next.val;
+        }
+
+        public void remove(int key){
+            int i = idx(key);
+            if(nodes[i] != null){
+                ListNode prev = find(nodes[i], key);
+                if(prev.next != null)
+                    prev.next = prev.next.next;
             }
         }
-        bucket.add(new int[]{key, value}); 
-    }
 
-    public int get(int key) {
-        int index = key % SIZE;
-        List<int[]> bucket = map[index];
-        for (int[] pair : bucket) {
-            if (pair[0] == key) {
-                return pair[1]; 
-            }
+        int idx(int key){return Integer.hashCode(key) % nodes.length;}
+
+        ListNode find(ListNode bucket, int key){
+            ListNode node = bucket, prev = null;
+            for(; node != null && node.key != key; node = node.next)
+                prev = node;
+            return prev;
         }
-        return -1; 
-    }
 
-    public void remove(int key) {
-        int index = key % SIZE;
-        List<int[]> bucket = map[index];
-        for (int i = 0; i < bucket.size(); i++) {
-            int[] pair = bucket.get(i);
-            if (pair[0] == key) {
-                bucket.remove(i); 
-                return;
+        class ListNode{
+            int key, val;
+            ListNode next;
+
+            ListNode(int key, int val){
+                this.key = key;
+                this.val = val;
             }
         }
     }
-}
