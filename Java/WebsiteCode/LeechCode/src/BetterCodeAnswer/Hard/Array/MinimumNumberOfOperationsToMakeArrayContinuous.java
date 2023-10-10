@@ -98,20 +98,19 @@ public class MinimumNumberOfOperationsToMakeArrayContinuous {
  */
 class MinimumNumberOfOperationsToMakeArrayContinuous_Solution {
     // 37 ms
-    // 55.9 MB
+    // 55.9 -> 55.7 (len = num.length)
     public int minOperations(int[] nums) {
         Arrays.sort(nums);
-        int count=Integer.MAX_VALUE,j=1,dup=0;
-        int[] dupArr = new int[nums.length];
-        for(int i=0;i<nums.length;i++) {
-            while(j<nums.length&&nums[j]<=nums[i]+nums.length-1) {
+        int count=Integer.MAX_VALUE,j=1,dup=0, len = nums.length;
+        int[] dupArr = new int[len];
+        for(int i=0;i<len;i++) {
+            while(j<len&&nums[j]<=nums[i]+len-1) {
                 if(nums[j]==nums[j-1]) ++dup;
                 dupArr[j]=dup;
                 j++;
             }
-            count = Math.min(count, i+(nums.length-j)+dup-dupArr[i]);
+            count = Math.min(count, i+(len-j)+dup-dupArr[i]);
         }
         return count;
     }
-	
 }
