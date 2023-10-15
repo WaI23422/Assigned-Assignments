@@ -1,92 +1,81 @@
-public class DivisionOfTwoBigNumber {
-    public static void main(String[] args) {
-        System.out.println(BigNumber.timesMinus("130", "002", 0)[0]);
-    }
-}
+package Integer.BigNumber.MathOperator.Divide;
 
-class BigNumber {
-    /**
-     * Subtract two numbers with the same length.
-     * @param minuend the number from which another number is subtracted.
-     * @param subtrahend the number that is subtracted from another number.
-     * @param times The number of times the subtrahend has already been subtracted from the minuend.
-     * @return The number of times the subtrahend has been subtracted from the minuend and the resut after minued.
-     */
-    public static Object[] timesMinus(String minuend, String subtrahend, int times){
-        int len = minuend.length(), remainder = 0;
-        int difference;
-        Object[]  res = new Object[2];
-        String minuendCopy = "";
-        // if minued number less than subtrahend number.
-        if (len != subtrahend.length()) {
-            throw new Error("Two numbers don't have the same length");
-        }
+import Integer.BigNumber.MathOperator.Minus.*;
+import Integer.BigNumber.Compare;
 
-        if (minuend.charAt(0) - subtrahend.charAt(0) < 0) {
-            res[1] = minuend.toString().replaceAll("^0+", "");
-            res[0] = times;
-            return res;
-        }
-
-        for (int i = len-1; i >= 0; i--) {
-            if (remainder > 0) {
-                difference = minuend.charAt(i)- subtrahend.charAt(i)-remainder;
-                remainder = 0;
-            } else {
-                difference = minuend.charAt(i)- subtrahend.charAt(i);
-            }
-
-            if (i == 0 && difference < 0) {
-                res[1] = minuend.toString().replaceAll("^0+", "");
-                res[0] = times;
-                return res;
-            }
-
-            if (difference < 0 ) {
-                difference = 10 + difference;   
-                remainder++;
-            } 
-
-            minuendCopy = difference + minuendCopy;
-        }
-
-        return timesMinus(minuendCopy, subtrahend, times+1);
-    }
-
+public class Divide {
     /**
      * Divide two big numbers.
      * @param dividend the number that is being divided by another number.
      * @param divisor the number by which the dividend is being divided.
      * @param digit the number displayed after comma.
      * @return return the quotient (result of the division) of two numbers. 
+     * 
+     * @see Minus.java
      */
-    public static String divide(String dividend, String divisor, int digit){
-        int len1 = dividend.length(),len2 = divisor.length();
-        String dividendNum, divisorNum;
-        String commaDigit = "",res = "";
-        int[] resArr = new int[len1-len2+1];
+    public static String BigNumber(String dividend, String divisor){
+        dividend = dividend.replaceAll("^0+", "");
+        divisor = divisor.replaceAll("^0+", "");
+
+        if (dividend == "") {dividend = "0";}
+        if (divisor == "") {divisor = "0";}
+        
+        int len1 = dividend.length(),len2 = divisor.length(), CompVal = Compare.TwoBigNumber(dividend, divisor);
 
         // Check if it is divisible:
-        if (len2 == 1 && divisor.charAt(0) == '0') {
-            throw new Error("Error: Can't divive by 0");
-        }
-
+        if (len2 == 1 && divisor.charAt(0) == '0') { throw new Error("Error: Can't divive by 0");} 
         // 0 is the dividend:
-        if (len1 == 1 && dividend.charAt(0) == '0') {
+        if (len1 == 1 && dividend.charAt(0) == '0') { return "0"; }
+        // 1 is the divisor:
+        if (len2 == 1 && divisor.charAt(0) == '1') { return dividend; }
+        // Check if the dividend is less than the divisor.:
+        if (CompVal == -1) {
             return "0";
+        } else if (CompVal == 0) {
+            return "1";
         }
+        
+        int start = 0, end = len2;
+        int timesMinus;
+        String res = "", remainder = "";
+        String subdividend;
+        Object[] numbHold;
 
         if (len1 >= len2) {
-            dividendNum = dividend.substring(0, len2);
-            divisorNum = "0" + divisor.substring(0, len2-1);
-            
-        } else {
-            for (int j = 0; j < digit; j++) {
-                res += "," + commaDigit;
+            while (end <= len1) {
+                subdividend = remainder + dividend.substring(start, end);
+
+                numbHold = Minus.timesRepeat(subdividend, divisor, 0);
+
+                remainder = (String) numbHold[1];
+                timesMinus = (int) numbHold[0];
+
+                res += timesMinus;
+
+                if (remainder == "") {
+                    start = end;
+                    end += len2;
+                } else {
+                    start = end;
+                    end += len2 + 1 -remainder.length();
+                }
+            }
+
+            if (start < len1) {
+                res += 0 ;
             }
         }
 
-        return res;
+        return res.replaceAll("^0+", "");
+    }
+    
+    // Check
+    public static void main(String[] args) {
+        String dividens = "1234567892111256978123156489156126156415648951212315489";
+        String divisors = "123457984515213126345648911354156478974565164574898455";
+
+        System.out.println(BigNumber(dividens, divisors));
     }
 }
+
 
