@@ -1,5 +1,7 @@
 package Integer.BigNumber.MathOperator.Minus;
 
+import Integer.BigNumber.Compare;
+
 public class Minus {
     /**
      * Subtract two numbers with the same length.
@@ -9,13 +11,25 @@ public class Minus {
      * @return The number of times the subtrahend has been subtracted from the minuend and the resut after minued.
      */
     public static Object[] timesRepeat(String minuend, String subtrahend, int times){
-        int len = minuend.length(), remainder = 0;
+        int len = minuend.length(), len2 = subtrahend.length(), remainder = 0;
         int difference;
         Object[]  res = new Object[2];
         String minuendCopy = "";
-        // if minued number less than subtrahend number.
-        if (len != subtrahend.length()) {
-            throw new Error("Two numbers don't have the same length");
+        
+        if (Compare.TwoBigNumber(minuend, subtrahend) == -1) {
+            res[1] = minuend.replaceAll("^0+", "");
+            res[0] = times; 
+            return res;
+        }
+
+        if (len > len2) {
+            for (int i = 0; i < len - len2; i++) {
+                subtrahend = "0" + subtrahend; 
+            }
+        } else if (len2 > len ) {
+            for (int i = 0; i < len2 - len; i++) {
+                minuend = "0" + minuend;
+            }
         }
 
         if (minuend.charAt(0) - subtrahend.charAt(0) < 0) {
