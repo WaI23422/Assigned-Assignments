@@ -37,7 +37,7 @@ package Easy.String;
  */
 public class RobotReturnToOrigin {
     public static void main(String[] args) {
-        String moves = "LRUD";
+        String moves = "RLUURDDDLU";
 
         RobotReturnToOrigin_Solution res = new RobotReturnToOrigin_Solution();
 
@@ -46,6 +46,40 @@ public class RobotReturnToOrigin {
 }
 
 class RobotReturnToOrigin_Solution {
+    // 3 ms 
+    // 43.6 MB
+    public boolean judgeCircle(String moves) {
+        int vertical = 0, horizontal = 0;
+        
+        for (char move : moves.toCharArray()) {
+            switch (move) {
+                case 'L':
+                    vertical++;
+                    break;
+                
+                case 'R':
+                    vertical--;
+                    break;
+
+                case 'U':
+                    horizontal++;
+                    break;
+
+                default:
+                    horizontal--;
+                    break;
+            }
+        }
+
+        if (vertical == 0 && horizontal == 0 ) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+}
+
+class RobotReturnToOrigin_Solution2 {
     // 4 ms 
     // 43.3 MB
     public boolean judgeCircle(String moves) {
