@@ -1,4 +1,4 @@
-package BetterCodeAnswer.Easy.Array;
+package Easy.Array;
 
 /**
  * <a class="mr-2 text-label-1 dark:text-dark-label-1 hover:text-label-1 dark:hover:text-dark-label-1 text-lg font-medium" href="/problems/richest-customer-wealth/">1672.Richest Customer Wealth</a>
@@ -63,20 +63,27 @@ public class RichestCustomerWealth {
 
 class RichestCustomerWealth_Solution {
     // 0 ms
-    // 41.3 MB
-    public int maximumWealth(int[][] account) {
-        int sum = 0;
-        int maxe = 0;
-        // int column= account[0].length;
-        for(int i = 0; i < account.length; i++)
-        {
-            for(int j = 0; j < account[0].length; j++)
-            {
-                sum = sum + account[i][j];
-            }
-            maxe = Math.max(sum,maxe);
-            sum = 0;
-        }
-        return maxe;
+    // 40.65 MB
+    static int totalSum(int[] account){
+        int Sum = 0;
+
+        if (account.length == 1) { return account[0]; }
+
+        for (int num : account) { Sum+= num;}
+
+        return Sum;
     }
+
+    public int maximumWealth(int[][] accounts) {
+        int maxAccount = Integer.MIN_VALUE;
+        int accountBalance;
+
+        for (int[] account : accounts) {
+            accountBalance = totalSum(account);
+            if ( accountBalance > maxAccount) {maxAccount = accountBalance;}
+        }
+        
+        System.gc();
+        return maxAccount;
+    }   
 }
