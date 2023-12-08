@@ -12,22 +12,21 @@ public class TreeNode {
         this.right = right;
     }
 
-    public static TreeNode addNode(Object[] arr){
+    public static TreeNode addNode(Object[] arr,int i){
+        TreeNode root = null;
+        // Base case for recursion
+        if (i < arr.length) {
+            if (arr[i] == null) { return new TreeNode();}
 
-        class sortedDepth {
-            static Object[] sort(Object[] arr) {
-                return new Object[2];
-            }
+            root = new TreeNode((int) arr[i]);
+ 
+            // insert left child
+            root.left = addNode(arr, 2 * i + 1);
+ 
+            // insert right child
+            root.right = addNode(arr, 2 * i + 2);
         }
-
-        Object[] arrSortedGraph = sortedDepth.sort(arr);
-
-        return new TreeNode();
+        return root;
     }
-
-    public static void main(String[] args) {
-        Object[] b = new Object[2];
-        TreeNode.addNode(b);
-    }
-    
 }
+
