@@ -60,7 +60,6 @@ class MaximumProductOfTwoElementsInAnArray_Solution {
                 max1 = nums[i];
             }
             else if(nums[i] > max2){
-                max1 = (max2 > max1 ) ? max2:max1;
                 max2 = nums[i];
             }
         }
