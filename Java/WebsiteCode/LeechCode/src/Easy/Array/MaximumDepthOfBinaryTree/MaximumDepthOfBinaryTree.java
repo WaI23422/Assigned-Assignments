@@ -42,8 +42,21 @@ public class MaximumDepthOfBinaryTree {
     }
 }
 
-// 0 ms 41.8 MB
 class MaximumDepthOfBinaryTree_Solution {
+    public int maxDepth(TreeNode root) {
+        return numDepth(root,0);
+    }
+    
+    public int numDepth(TreeNode root, int depth){
+        if (root==null){ return depth;}
+
+        return Math.max(numDepth(root.left,depth),numDepth(root.right,depth)) + 1;
+    }
+}
+
+
+// 0 ms 41.8 MB
+class MaximumDepthOfBinaryTree_Solution2 {
     public int maxDepth(TreeNode root) {
         return numDepth(root,0);
     }
