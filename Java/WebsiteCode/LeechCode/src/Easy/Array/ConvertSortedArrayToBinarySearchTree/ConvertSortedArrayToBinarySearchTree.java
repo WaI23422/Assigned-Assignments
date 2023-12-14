@@ -1,5 +1,7 @@
 package Easy.Array.ConvertSortedArrayToBinarySearchTree;
 
+import java.util.Arrays;
+
 /**
  * <a class="mr-2 text-label-1 dark:text-dark-label-1 hover:text-label-1 dark:hover:text-dark-label-1 text-lg font-medium" href="/problems/convert-sorted-array-to-binary-search-tree/">108.Convert Sorted Array to Binary Search Tree</a>
  * 
@@ -41,7 +43,7 @@ public class ConvertSortedArrayToBinarySearchTree {
         for (int[] nums : tests) {
             TreeNode ans = new ConvertSortedArrayToBinarySearchTree_Solution().sortedArrayToBST(nums);
 
-            System.out.println(ans.toString());
+            System.out.println(Arrays.toString(TreeNode.toArray(ans)));
         }
     }
 }
