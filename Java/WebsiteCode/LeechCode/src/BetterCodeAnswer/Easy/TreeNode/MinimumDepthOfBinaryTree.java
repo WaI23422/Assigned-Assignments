@@ -1,8 +1,6 @@
 package BetterCodeAnswer.Easy.TreeNode;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Queue;
 
 /**
@@ -76,12 +74,11 @@ class MinimumDepthOfBinaryTree_Solution {
     }
 }
 
-// 2 ms 61.2 MB
+// 1 ms 61.2 MB
 class MinimumDepthOfBinaryTree_Solution2 {
     public int minDepth(TreeNode root) {
         if(root==null) {return 0;}
 
-        List<List<Integer>> ans = new ArrayList<>();
         Queue<TreeNode> q = new LinkedList<>();
         
         q.offer(root);
@@ -90,7 +87,6 @@ class MinimumDepthOfBinaryTree_Solution2 {
 
         while(q.size()>0){
             int len = q.size();
-            List<Integer> sub = new ArrayList<>();
 
             for(int i=0;i<len;i++){
                 TreeNode node1 = q.poll();
@@ -99,7 +95,6 @@ class MinimumDepthOfBinaryTree_Solution2 {
                 if(node1.right!=null){ q.offer(node1.right); }
             }
 
-            ans.add(sub);
             c++;
         }
         
