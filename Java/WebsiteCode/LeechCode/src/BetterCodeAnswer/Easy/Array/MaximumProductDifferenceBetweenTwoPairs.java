@@ -1,4 +1,6 @@
-package Easy.Array;
+package BetterCodeAnswer.Easy.Array;
+
+import java.util.Arrays;
 
 /**
  * <a class="mr-2 text-label-1 dark:text-dark-label-1 hover:text-label-1 dark:hover:text-dark-label-1 text-lg font-medium" href="/problems/maximum-product-difference-between-two-pairs/">1913.Maximum Product Difference Between Two Pairs</a>
@@ -53,31 +55,31 @@ public class MaximumProductDifferenceBetweenTwoPairs {
     }
 }
 
-// 2 ms 44.1 MB
+// 1 ms 44 MB
 class MaximumProductDifferenceBetweenTwoPairs_Solution {
     public int maxProductDifference(int[] nums) {
-        int 
-            max1 = Integer.MIN_VALUE, max2 = Integer.MIN_VALUE, 
-            min1 = Integer.MAX_VALUE, min2 = Integer.MAX_VALUE,
-            hold; 
+        int[] cloneNums = Arrays.copyOf(nums, nums.length);
+        int[] fmaxmin = getMaxMin(cloneNums);
+        int[] smaxmin = getMaxMin(cloneNums);
 
-        for (int num : nums) {
-            if (num > max1) { 
-                hold = max1; max1 = num;
-                if (hold > max2) {max2 = hold;}
-            } else if (num > max2) {
-                max2 = num;
+        return fmaxmin[0] * smaxmin[0] - fmaxmin[1] * smaxmin[1];
+    }
+
+    private int[] getMaxMin(int[] nums) {
+        int len = nums.length;
+        int maxi = 0, mini = 0, max = Integer.MIN_VALUE, min = Integer.MAX_VALUE;
+        for (int i = 0; i < len; i++) {
+            if (nums[i] > max) {
+                max = nums[i];
+                maxi = i;
             }
-
-            if (num < min2) {
-                hold = min2; min2 = num;
-                if (hold < min1) {min1 = hold;}
-            } else if (num < min1) {
-                min1 = num;
+            if (nums[i] < min && nums[i] != Integer.MIN_VALUE) {
+                min = nums[i];
+                mini = i;
             }
         }
-
-        System.gc(); // 3 ms 40.9 MB
-        return (max1*max2) - (min1*min2);
+        nums[maxi] = Integer.MIN_VALUE;
+        nums[mini] = Integer.MIN_VALUE;
+        return new int[] {max, min};
     }
 }
