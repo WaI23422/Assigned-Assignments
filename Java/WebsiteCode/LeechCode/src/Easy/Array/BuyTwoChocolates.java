@@ -1,4 +1,6 @@
-package BetterCodeAnswer.Easy.Array;
+package Easy.Array;
+
+import java.util.Arrays;
 
 /**
  * <a class="mr-2 text-label-1 dark:text-dark-label-1 hover:text-label-1 dark:hover:text-dark-label-1 text-lg font-medium" href="/problems/buy-two-chocolates/">2706.Buy Two Chocolates</a>
@@ -51,9 +53,33 @@ public class BuyTwoChocolates {
     }
 }
 
-// @see Easy.Array.BuyTwoChocolates.java
+// 1 ms 43.3 MB
 class BuyTwoChocolates_Solution {
     public int buyChoco(int[] prices, int money) {
-        return 0;
+        int min1 = Integer.MAX_VALUE, min2 = Integer.MAX_VALUE;
+
+        for (int i = 0; i < prices.length; i++) {
+            if (prices[i] < min2) {
+                if (min2 < min1) {min1 = min2;}
+                min2 = prices[i];
+            } else if (prices[i] < min1){
+                min1 = prices[i];
+            }
+        }
+
+        System.gc(); // 22 ms 41.1 MB
+        return money-min1-min2 >= 0 ? money-min1-min2 : money;  
     }
 }
+
+// 2 ms 43.4 MB
+class BuyTwoChocolates_Solution2 {
+    public int buyChoco(int[] prices, int money) {
+        Arrays.sort(prices);
+        
+        int spending = money - prices[0] - prices[1];
+
+        return spending >= 0 ? spending : money;  
+    }
+}
+
