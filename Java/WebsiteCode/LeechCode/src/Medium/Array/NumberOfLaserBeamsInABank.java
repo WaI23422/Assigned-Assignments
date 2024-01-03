@@ -141,3 +141,38 @@ class NumberOfLaserBeamsInABank_Solution{
         return oneChar; 
     }
 }
+
+// 17 ms 44.5 MB
+class NumberOfLaserBeamsInABank_Solution3{
+    int row = 0;
+    
+    public int numberOfBeams(String[] bank) {
+        int laserbeams = 0, row1 = oneCount(bank), row2 = 0; 
+        
+        while (row < bank.length) {
+            row2 = oneCount(bank);
+
+            laserbeams += row1 * row2;
+
+            row1 = row2;
+        }
+
+        return laserbeams;
+    }
+
+    public int oneCount(String[] bank){
+        if (row >= bank.length) { return 0;}
+
+        int oneChar = 0;
+
+        for (int i = 0; i < bank[row].length(); i++) {
+            if (bank[row].charAt(i) == '1') {oneChar++;}
+        }
+        
+        row++;
+        
+        if (oneChar == 0) { return oneCount(bank);}
+        
+        return oneChar;
+    }
+}
