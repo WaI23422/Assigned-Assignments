@@ -1,4 +1,4 @@
-package Medium.TreeNode;
+package BetterCodeAnswer.Medium.TreeNode;
 
 public class TreeNode {
     int val;
