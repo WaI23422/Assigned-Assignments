@@ -94,25 +94,3 @@ class FindTheTownJudge_Solution {
         
     }
 }
-
-// 2 ms 53.9 MB
-class FindTheTownJudge_Solution2 {
-    public int findJudge(int n, int[][] trust) {
-        Boolean[] adj = new Boolean[n+1];
-        int[] count = new int[n+1];
-        
-        for (int i = 0; i < trust.length; i++) {
-            if (adj[trust[i][0]] == null)
-                adj[trust[i][0]] = true;
-            
-            count[trust[i][1]]++;
-        }
-        
-        for (int i = 1; i <= n ; i++) {
-            if (adj[i] == null && count[i] == n-1)
-                return i;
-        }
-        
-        return -1;
-    }
-}
