@@ -1,4 +1,4 @@
-package Easy.Number;
+package BetterCodeAnswer.Easy.Number;
 
 public class ExcelSheetColumnTitle {
     public static void main(String[] args) {
@@ -16,17 +16,38 @@ public class ExcelSheetColumnTitle {
     }
 }
 
-// 0 ms 40.8 MB
+// 0 ms 40.78 MB
 class ExcelSheetColumnTitle_Solution {
     public String convertToTitle(int columnNumber) {
-        StringBuilder ans = new StringBuilder();
-        
-        while (columnNumber > 0) {
-            char a = (char) (64 + (columnNumber%26 == 0? 26: columnNumber%26));
-            ans.append(a);
-            columnNumber = (columnNumber-(a-64))/26;
-        }   
-        
-        return ans.reverse().toString();
+        char arr[] = new char[27];
+        String str = "";
+
+        for(int i=1;i<arr.length;i++){
+            arr[i] = (char)(64+i);
+        }
+
+        if(columnNumber > 26){
+            while(columnNumber/26 >= 1){
+                 
+                if(columnNumber%26 <= 26){
+                    if(columnNumber%26 == 0){
+                        str = "Z"+str;
+                        columnNumber = columnNumber-1;
+                    }else {
+                        str = String.valueOf(arr[columnNumber%26])+str;
+                    }
+                }
+                if(columnNumber/26 <= 26){
+                    str = String.valueOf(arr[columnNumber/26])+str;
+                    break;
+                }else {
+                    columnNumber = columnNumber/26;
+                }
+            }
+        }else{
+            str = String.valueOf(arr[columnNumber]);
+        }
+
+        return str;
     }
 }
