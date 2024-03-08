@@ -1,4 +1,4 @@
-package BetterCodeAnswer.Easy.Number;
+package Easy.Number;
 
 public class ExcelSheetColumnTitle {
     public static void main(String[] args) {
@@ -16,38 +16,62 @@ public class ExcelSheetColumnTitle {
     }
 }
 
-// 0 ms 40.78 MB
+// 0 ms 40.8 MB
 class ExcelSheetColumnTitle_Solution {
     public String convertToTitle(int columnNumber) {
-        char arr[] = new char[27];
-        String str = "";
+        StringBuilder ans = new StringBuilder();
+        
+        while (columnNumber > 0) {
+            char a = (char) (64 + (columnNumber%26 == 0? 26: columnNumber%26));
+            ans.append(a);
+            columnNumber = (columnNumber-(a-64))/26;
+        }   
+        
+        return ans.reverse().toString();
+    }
+}
 
+// 0 ms 40.48 MB
+class ExcelSheetColumnTitle_Solution2 {
+    public String convertToTitle(int columnNumber) {
+        String ans = "";
+        char arr[] = new char[26]; 
+        arr[0] = 'Z';
         for(int i=1;i<arr.length;i++){
             arr[i] = (char)(64+i);
         }
 
-        if(columnNumber > 26){
-            while(columnNumber/26 >= 1){
-                 
-                if(columnNumber%26 <= 26){
-                    if(columnNumber%26 == 0){
-                        str = "Z"+str;
-                        columnNumber = columnNumber-1;
-                    }else {
-                        str = String.valueOf(arr[columnNumber%26])+str;
-                    }
-                }
-                if(columnNumber/26 <= 26){
-                    str = String.valueOf(arr[columnNumber/26])+str;
-                    break;
-                }else {
-                    columnNumber = columnNumber/26;
-                }
-            }
-        }else{
-            str = String.valueOf(arr[columnNumber]);
+        while (columnNumber > 0) {
+            char a = arr[columnNumber%26];
+            ans = String.valueOf(a) + ans;
+            columnNumber = (columnNumber-(a-64))/26;
+        }   
+        
+        return ans;
+    }
+}
+
+// 0 ms 40.35 MB
+class ExcelSheetColumnTitle_Solution3 {
+    public String convertToTitle(int columnNumber) {
+        String ans = "";
+        char arr[] = new char[26]; 
+        arr[0] = 'Z';
+        for(int i=1;i<arr.length;i++){
+            arr[i] = (char)(64+i);
         }
 
-        return str;
+        while (columnNumber > 26) {
+            char a = arr[columnNumber%26];
+            ans = String.valueOf(arr[columnNumber%26]) + ans;
+            if (a == 'Z') { columnNumber = columnNumber/26 -1; }
+            else {columnNumber = columnNumber/26;}
+        }   
+
+        if (columnNumber != 0) {
+            ans = String.valueOf(arr[columnNumber%26]) + ans;
+        }
+        
+        return ans;
     }
 }
