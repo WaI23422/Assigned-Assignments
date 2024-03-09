@@ -221,6 +221,18 @@ class ReverseBits_Solution {
 }
 
 // 0 ms 41.5 MB
+/**
+ * <p>We start with an answer variable set to 0. Write a for loop that will run 32 times (once for each bit). In the loop we will:</p>
+ * <ul>
+<li>Move the answer's bits to the left.<br>
+<code>ans &lt;&lt;= 1;</code></li>
+<li>Check if the current bit is 1 and add it to the answer if it is.<br>
+<code>ans |= (n &amp; 1);</code></li>
+<li>Move to the next bit in the given number.<br>
+<code>n &gt;&gt;= 1;</code></li>
+</ul>
+<p>After this process, the answer will have the reversed bits.</p>
+ */
 class ReverseBits_Solution2 {
     public int reverseBits(int num) {
        int result = 0;
