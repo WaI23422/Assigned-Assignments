@@ -3,8 +3,10 @@ package Easy.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * <a class="no-underline hover:text-blue-s dark:hover:text-dark-blue-s truncate cursor-text whitespace-normal hover:!text-[inherit]" href="/problems/contains-duplicate/">217.Contains Duplicate</a>
@@ -52,7 +54,7 @@ public class ContainsDuplicateII {
 }
 
 // 813 ms 54.6 MB
-class ContainsDuplicateII_Solution4 {
+class ContainsDuplicateII_Solution5 {
     public boolean containsNearbyDuplicate(int[] nums, int k) {
         
         for (int i = 1; i < nums.length; i++) {
@@ -69,7 +71,7 @@ class ContainsDuplicateII_Solution4 {
 }
 
 // Time Limit Exceeded
-class ContainsDuplicateII_Solution3 {
+class ContainsDuplicateII_Solution4 {
     int LENGTH;
     
     public boolean containsNearbyDuplicate(int[] nums, int k) {
@@ -103,7 +105,7 @@ class ContainsDuplicateII_Solution3 {
 }
 
 // 23 ms 63.5 MB
-class ContainsDuplicateII_Solution2 {
+class ContainsDuplicateII_Solution3 {
     public boolean containsNearbyDuplicate(int[] nums, int k) {
         int index = 0;
         HashMap<Integer,List<Integer>> trackDup = new HashMap<>();
@@ -138,7 +140,7 @@ class ContainsDuplicateII_Solution2 {
 }
 
 // 19 ms 57.9 MB
-class ContainsDuplicateII_Solution {
+class ContainsDuplicateII_Solution2 {
     public boolean containsNearbyDuplicate(int[] nums, int k) {
         Map<Integer, Integer> map = new HashMap<>();
         for(int i = 0; i < nums.length; i++) {
@@ -151,6 +153,18 @@ class ContainsDuplicateII_Solution {
             map.put(n, i);
         }
 
+        return false;
+    }
+}
+
+// 15 ms 57.9 MB
+class ContainsDuplicateII_Solution {
+    public boolean containsNearbyDuplicate(int[] nums, int k) {
+        Set<Integer> set = new HashSet<Integer>();
+        for(int i = 0; i < nums.length; i++){
+            if(i > k) set.remove(nums[i-k-1]);
+            if(!set.add(nums[i])) return true;
+        }
         return false;
     }
 }
