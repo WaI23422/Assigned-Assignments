@@ -46,7 +46,7 @@ public class TreeNode {
         TreeNode root = null;
         // Base case for recursion
         if (i < arr.length) {
-            if (arr[i] == null) { return new TreeNode();}
+            if (arr[i] == null) { return null;}
 
             root = new TreeNode((int) arr[i]);
  
