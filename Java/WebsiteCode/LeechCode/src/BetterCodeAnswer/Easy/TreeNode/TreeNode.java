@@ -36,7 +36,7 @@ public class TreeNode {
             if (root == null) {arr[i] = "null"; return;}
 
             arr[i] = String.valueOf(root.val);
-
+            
             addNodeToArray(arr, root.left, 2*i + 1);
             addNodeToArray(arr, root.right, 2*i + 2);
         }
@@ -46,7 +46,7 @@ public class TreeNode {
         TreeNode root = null;
         // Base case for recursion
         if (i < arr.length) {
-            if (arr[i] == null) { return new TreeNode();}
+            if (arr[i] == null) { return null;}
 
             root = new TreeNode((int) arr[i]);
  
