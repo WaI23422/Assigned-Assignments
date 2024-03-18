@@ -83,34 +83,23 @@ class MinimumNumberOfArrowsToBurstBalloons_Solution {
 
 // 28 ms 74.4 MB
 class MinimumNumberOfArrowsToBurstBalloons_Solution2 {
-    static void quicksort(int[][] points,int low,int high)
-    {
-        if(low<high)
-        {
+    static void quicksort(int[][] points,int low,int high){
+        if(low<high){
             int i=low;
             int j=high;
             int mid=(low+high)/2;
             int pivot=points[mid][1];
             while(true){
 
-                while(points[i][1]<pivot)
-                {
-                    i++;
-                }
-                while(points[j][1]>pivot)
-                {
-                    j--;
-                }
-                if(i>=j)
-                {
-                    break;
-                }
+                while(points[i][1]<pivot){i++;}
+                while(points[j][1]>pivot){j--;}
+                if(i>=j){break;}
+
                 int[] temp=points[i];
                 points[i]=points[j];
                 points[j]=temp;
                 i++;
                 j--;
-
             }
             quicksort(points,low,j);
             quicksort(points,j+1,high);
@@ -118,9 +107,7 @@ class MinimumNumberOfArrowsToBurstBalloons_Solution2 {
     }
 
     public int findMinArrowShots(int[][] points) {
-        if (points.length == 0) {
-            return 0;
-        }
+        if (points.length == 0) {return 0;}
         quicksort(points, 0, points.length - 1);
 
         int cnt = 0;
@@ -139,58 +126,5 @@ class MinimumNumberOfArrowsToBurstBalloons_Solution2 {
         }
 
         return cnt + 1;
-    }
-}
-
-// 33 ms 74.5 MB
-class MinimumNumberOfArrowsToBurstBalloons_Solution3 {
-    public int findMinArrowShots(int[][] points) {
-        if (points.length == 0) return 0;
-        if (points.length == 1) return 1;
-
-        // Arrays.sort(points, (a, b) -> Integer.compare(a[0], b[0]));
-        quickSort(points, 0, points.length-1);
-        
-        int count = 0;
-        int prevEnd = points[0][1];
-
-        for(int i=1; i<points.length; i++){
-            if(points[i][0] <= prevEnd){
-                prevEnd = Math.min(points[i][1], prevEnd);
-            }
-            else{
-                count ++;
-                prevEnd = points[i][1];
-            }
-        }
-
-        return ++count;
-    }
-    private void quickSort(int[][] arr, int low, int high) {
-        if (low >= high) return;
-
-        random(arr, low, high);
-
-        int i = (low - 1);
-        for (int j = low; j <= high; j++) 
-            if (arr[j][1] < arr[high][1]) {
-                swap(arr, j, ++i);
-            }
-        swap(arr, high, ++i);
-
-        quickSort(arr, low, i - 1);
-        quickSort(arr, i + 1, high);
-    }
-
-    private void random(int[][] arr, int low, int high) {
-        int mid = low + (high - low) / 2;
-        swap(arr, mid, high);
-    }
-
-    private void swap(int[][] arr, int x, int y) {
-        if (x == y) return;
-        int[] temp = arr[x];
-        arr[x] = arr[y];
-        arr[y] = temp;
     }
 }
