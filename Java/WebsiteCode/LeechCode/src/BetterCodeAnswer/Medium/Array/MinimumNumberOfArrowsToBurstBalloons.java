@@ -172,9 +172,10 @@ class MinimumNumberOfArrowsToBurstBalloons_Solution3 {
         random(arr, low, high);
 
         int i = (low - 1);
-        for (int j = low; j <= high; j++) if (arr[j][1] < arr[high][1]) {
-            swap(arr, j, ++i);
-        }
+        for (int j = low; j <= high; j++) 
+            if (arr[j][1] < arr[high][1]) {
+                swap(arr, j, ++i);
+            }
         swap(arr, high, ++i);
 
         quickSort(arr, low, i - 1);
