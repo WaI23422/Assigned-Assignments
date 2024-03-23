@@ -1,5 +1,7 @@
 package BetterCodeAnswer.Medium.TreeNode;
 
+import BetterCodeAnswer.Medium.TreeNode.Class.TreeNode;
+
 public class CountNodesEqualToAverageOfSubtree {
     static int index;
 

@@ -1,5 +1,7 @@
 package BetterCodeAnswer.Medium.ListNode;
 
+import BetterCodeAnswer.Medium.ListNode.Class.ListNode;
+
 public class MergeInBetweenLinkedLists {
     public static void main(String[] args) {
         int[][][] tests = {

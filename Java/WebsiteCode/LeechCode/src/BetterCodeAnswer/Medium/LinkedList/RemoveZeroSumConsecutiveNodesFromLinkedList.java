@@ -1,5 +1,7 @@
 package BetterCodeAnswer.Medium.LinkedList;
 
+import BetterCodeAnswer.Medium.LinkedList.Class.ListNode;
+
 /**
  * <a class="no-underline hover:text-blue-s dark:hover:text-dark-blue-s truncate cursor-text whitespace-normal hover:!text-[inherit]" href="/problems/remove-zero-sum-consecutive-nodes-from-linked-list/">1171.Remove Zero Sum Consecutive Nodes from Linked List</a>
  * 
@@ -70,9 +72,9 @@ class RemoveZeroSumConsecutiveNodesFromLinkedList_Solution {
             if(running_sum==0)
             {
                 if(prev == null)
-                head = cur.next;
+                    head = cur.next;
                 else
-                prev.next = cur.next;
+                    prev.next = cur.next;
                 return removeZeroSumSublists(head);
             }
             cur = cur.next;

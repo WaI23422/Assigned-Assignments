@@ -1,5 +1,7 @@
 package BetterCodeAnswer.Medium.LinkedList;
 
+import BetterCodeAnswer.Medium.LinkedList.Class.ListNode;
+
 public class RemoveNthNodeFromEndOfList {
     public static void main(String[] args) {
         int[][][] tests = {
