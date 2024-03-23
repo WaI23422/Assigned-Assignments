@@ -1,5 +1,7 @@
 package Easy.TreeNode;
 
+import Easy.TreeNode.Class.TreeNode;
+
 public class DiameterOfBinaryTree {
     public static void main(String[] args) {
         Object[][] tests = {

@@ -3,6 +3,8 @@ package Easy.TreeNode;
 import java.util.ArrayList;
 import java.util.List;
 
+import Easy.TreeNode.Class.TreeNode;
+
 /**
  * BinaryTreeInorderTraversal
  */

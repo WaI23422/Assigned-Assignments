@@ -1,5 +1,7 @@
 package Easy.TreeNode;
 
+import Easy.TreeNode.Class.TreeNode;
+
 /**
  * <a class="mr-2 text-label-1 dark:text-dark-label-1 hover:text-label-1 dark:hover:text-dark-label-1 text-lg font-medium" href="/problems/convert-sorted-array-to-binary-search-tree/">108.Convert Sorted Array to Binary Search Tree</a>
  * 
