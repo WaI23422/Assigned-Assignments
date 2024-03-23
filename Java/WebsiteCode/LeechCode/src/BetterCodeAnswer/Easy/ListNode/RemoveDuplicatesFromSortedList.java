@@ -3,6 +3,8 @@ package BetterCodeAnswer.Easy.ListNode;
 import java.util.ArrayList;
 import java.util.List;
 
+import BetterCodeAnswer.Easy.ListNode.Class.ListNode;
+
 /**
  * <a class="mr-2 text-label-1 dark:text-dark-label-1 hover:text-label-1 dark:hover:text-dark-label-1 text-lg font-medium" href="/problems/remove-duplicates-from-sorted-list/">83.Remove Duplicates from Sorted List</a>
  * 

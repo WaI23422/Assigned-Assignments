@@ -3,6 +3,8 @@ package BetterCodeAnswer.Easy.TreeNode;
 import java.util.LinkedList;
 import java.util.Queue;
 
+import BetterCodeAnswer.Easy.TreeNode.Class.TreeNode;
+
 /**
  * <a class="mr-2 text-label-1 dark:text-dark-label-1 hover:text-label-1 dark:hover:text-dark-label-1 text-lg font-medium" href="/problems/minimum-depth-of-binary-tree/">111.Minimum Depth of Binary Tree</a>
  * 

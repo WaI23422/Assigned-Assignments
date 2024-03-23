@@ -2,6 +2,8 @@ package BetterCodeAnswer.Easy.TreeNode;
 
 import java.util.Arrays;
 
+import BetterCodeAnswer.Easy.TreeNode.Class.TreeNode;
+
 /**
  * <a class="no-underline hover:text-blue-s dark:hover:text-dark-blue-s truncate cursor-text whitespace-normal hover:!text-[inherit]" href="/problems/invert-binary-tree/">226.Invert Binary Tree</a>
  * 

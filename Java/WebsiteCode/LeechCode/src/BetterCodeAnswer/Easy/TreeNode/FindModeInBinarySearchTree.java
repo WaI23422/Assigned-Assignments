@@ -3,6 +3,8 @@ package BetterCodeAnswer.Easy.TreeNode;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import BetterCodeAnswer.Easy.TreeNode.Class.TreeNode;
+
 /**
  * <a class="mr-2 text-label-1 dark:text-dark-label-1 hover:text-label-1 dark:hover:text-dark-label-1 text-lg font-medium" href="/problems/find-mode-in-binary-search-tree/">501.Find Mode in Binary Search Tree</a>
  * 

@@ -3,6 +3,8 @@ package BetterCodeAnswer.Easy.TreeNode;
 import java.util.ArrayList;
 import java.util.List;
 
+import BetterCodeAnswer.Easy.TreeNode.Class.TreeNode;
+
 /**
  * <a class="no-underline hover:text-blue-s dark:hover:text-dark-blue-s truncate cursor-text whitespace-normal hover:!text-[inherit]" href="/problems/binary-tree-preorder-traversal/">144.Binary Tree Preorder Traversal</a>
  * 

@@ -1,5 +1,7 @@
 package BetterCodeAnswer.Easy.LinkedList;
 
+import BetterCodeAnswer.Easy.LinkedList.Class.ListNode;
+
 /**
  * <a class="no-underline hover:text-blue-s dark:hover:text-dark-blue-s truncate cursor-text whitespace-normal hover:!text-[inherit]" href="/problems/middle-of-the-linked-list/">876.Middle of the Linked List</a>
  * 
