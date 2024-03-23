@@ -2,6 +2,8 @@ package Easy.LinkedList;
 
 import java.util.Stack;
 
+import Easy.LinkedList.Class.ListNode;
+
 /**
  * <a class="no-underline hover:text-blue-s dark:hover:text-dark-blue-s truncate cursor-text whitespace-normal hover:!text-[inherit]" href="/problems/palindrome-linked-list/">234.Palindrome Linked List</a>
  * 
