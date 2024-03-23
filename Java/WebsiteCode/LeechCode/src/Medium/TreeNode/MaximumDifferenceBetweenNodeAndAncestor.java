@@ -1,5 +1,7 @@
 package Medium.TreeNode;
 
+import Medium.TreeNode.Class.TreeNode;
+
 /**
  * <a class="no-underline hover:text-blue-s dark:hover:text-dark-blue-s truncate cursor-text whitespace-normal hover:!text-[inherit]" href="/problems/maximum-difference-between-node-and-ancestor/">1026.Maximum Difference Between Node and Ancestor</a>
  * 

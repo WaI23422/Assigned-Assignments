@@ -1,5 +1,7 @@
 package Medium.LinkedList;
 
+import Medium.LinkedList.Class.ListNode;
+
 public class RemoveNthNodeFromEndOfList {
     public static void main(String[] args) {
         int[][][] tests = {

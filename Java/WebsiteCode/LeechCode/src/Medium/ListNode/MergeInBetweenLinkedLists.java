@@ -1,5 +1,7 @@
 package Medium.ListNode;
 
+import Medium.ListNode.Class.ListNode;
+
 public class MergeInBetweenLinkedLists {
     public static void main(String[] args) {
         int[][][] tests = {

@@ -3,6 +3,8 @@ package Medium.TreeNode;
 import java.util.ArrayList;
 import java.util.List;
 
+import Medium.TreeNode.Class.TreeNode;
+
 /**
  * <a class="mr-2 text-label-1 dark:text-dark-label-1 hover:text-label-1 dark:hover:text-dark-label-1 text-lg font-medium" href="/problems/find-largest-value-in-each-tree-row/">515.Find Largest Value in Each Tree Row</a>
  * 

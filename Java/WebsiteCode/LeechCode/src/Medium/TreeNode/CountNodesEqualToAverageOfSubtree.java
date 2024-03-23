@@ -1,5 +1,7 @@
 package Medium.TreeNode;
 
+import Medium.TreeNode.Class.TreeNode;
+
 public class CountNodesEqualToAverageOfSubtree {
     static int index;
 

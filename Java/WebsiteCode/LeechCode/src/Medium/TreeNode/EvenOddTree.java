@@ -2,6 +2,8 @@ package Medium.TreeNode;
 
 import java.util.ArrayDeque;
 
+import Medium.TreeNode.Class.TreeNode;
+
 /**
  * <a class="no-underline hover:text-blue-s dark:hover:text-dark-blue-s truncate cursor-text whitespace-normal hover:!text-[inherit]" href="/problems/even-odd-tree/">1609.Even Odd Tree</a>
  * 
